@@ -65,14 +65,14 @@ resource "snowmirror_synchronization" "sys_user" {
   delete_strategy    = "AUDIT"
   encoded_query      = null
   full_load_scheduler = {
-    begin_date     = formatdate("YYY-MM-DD", timestamp())
+    begin_date     = formatdate("YYYY-MM-DD", timestamp())
     execution_type = "CLEAN_AND_SYNCHRONIZE"
     type           = "MANUALLY"
   }
   reference_field_type = "BOTH"
   run_immediately      = null
   scheduler = {
-    begin_date = formatdate("YYY-MM-DD", timestamp())
+    begin_date = formatdate("YYYY-MM-DD", timestamp())
     type       = "MANUALLY"
   }
   scheduler_priority = "NORMAL"
