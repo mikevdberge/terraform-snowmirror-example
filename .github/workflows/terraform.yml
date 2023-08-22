@@ -10,9 +10,9 @@ on:
 # Using Terraform environment variables referencing secrets managed in Doppler
 # env:
 #   TF_VAR_doppler_token: ${{ secrets.DOPPLER_TOKEN }}
-defaults:
-  run:
-    working-directory: terraform
+#defaults:
+#  run:
+#    working-directory: terraform
 jobs:
   terraform:
     name: "Terraform"
