@@ -91,31 +91,30 @@ resource "snowmirror_synchronization" "sys_upgrade_metric" {
       name = "sys_id"
     },
     {
-      name = "upgrade_file"
+      name = "name"
     },
     {
-      name = "upgrade_history"
+      name = "active"
     },
     {
-      name = "upgrade_type"
+      name = "country"
     },
   ]
   columns_to_exclude = null
   delete_strategy    = "AUDIT"
   encoded_query      = null
-  reference_field_type = "BOTH"
-  run_immediately      = null
-  scheduler = {
-    begin_date = formatdate("YYYY-MM-DD", timestamp())
-    type       = "DAILY"
-    time       = "06:00"
-  }
   full_load_scheduler = {
     begin_date     = formatdate("YYYY-MM-DD", timestamp())
     execution_type = "CLEAN_AND_SYNCHRONIZE"
     type           = "MANUALLY"
-    time           = "02:00"
+  }
+  reference_field_type = "BOTH"
+  run_immediately      = true
+  scheduler = {
+    begin_date = formatdate("YYYY-MM-DD", timestamp())
+    type       = "MANUALLY"
   }
   scheduler_priority = "NORMAL"
   view               = null
 }
+
