@@ -7,12 +7,12 @@ terraform {
   }
 }
 
-variable username {}
-variable password {}
+variable "username" {}
+variable "password" {}
 
 provider "snowmirror" {
   # Configuration options
   server_url = "https://snowmirror.qhse-professionals.nl"
-  username = "${var.username}"
-  password = "${var.password}"
+  username   = var.username
+  password   = var.password
 }
