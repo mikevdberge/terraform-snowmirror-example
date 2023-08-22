@@ -1,7 +1,7 @@
 resource "snowmirror_synchronization" "sys_rest_message" {
-  mirror_table          = "sys_rest_message"
-  name                  = "sys_rest_message"
-  table                 = "sys_rest_message"
+  mirror_table            = "sys_rest_message"
+  name                    = "sys_rest_message"
+  table                   = "sys_rest_message"
   active                  = true
   allow_inherited_columns = true
   auto_schema_update      = "false"
@@ -20,7 +20,7 @@ resource "snowmirror_synchronization" "sys_rest_message" {
     },
     {
       name = "basic_auth_profile"
-    },    
+    },
   ]
   columns_to_exclude = null
   delete_strategy    = "AUDIT"
