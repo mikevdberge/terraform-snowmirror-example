@@ -103,18 +103,18 @@ resource "snowmirror_synchronization" "sys_upgrade_metric" {
   columns_to_exclude = null
   delete_strategy    = "AUDIT"
   encoded_query      = null
-  full_load_scheduler = {
-    begin_date     = formatdate("YYYY-MM-DD", timestamp())
-    execution_type = "CLEAN_AND_SYNCHRONIZE"
-    type           = "WEEKLY"
-    time           = "02:00"
-  }
   reference_field_type = "BOTH"
   run_immediately      = null
   scheduler = {
     begin_date = formatdate("YYYY-MM-DD", timestamp())
     type       = "DAILY"
     time       = "06:00"
+  }
+  full_load_scheduler = {
+    begin_date     = formatdate("YYYY-MM-DD", timestamp())
+    execution_type = "CLEAN_AND_SYNCHRONIZE"
+    type           = "MANUALLY"
+    time           = "02:00"
   }
   scheduler_priority = "NORMAL"
   view               = null
