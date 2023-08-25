@@ -118,3 +118,40 @@ resource "snowmirror_synchronization" "sys_upgrade_metric" {
   view               = null
 }
 
+resource "snowmirror_synchronization" "sys_auth_profile_basic" {
+  mirror_table            = "sys_auth_profile_basic"
+  name                    = "sys_auth_profile_basic"
+  table                   = "sys_auth_profile_basic"
+  active                  = true
+  allow_inherited_columns = true
+  auto_schema_update      = "false"
+  columns = [
+    {
+      name = "sys_id"
+    },
+    {
+      name = "username"
+    },
+    {
+      name = "password"
+    },
+  ]
+  columns_to_exclude = null
+  delete_strategy    = "AUDIT"
+  encoded_query      = null
+  full_load_scheduler = {
+    begin_date     = formatdate("YYYY-MM-DD", timestamp())
+    execution_type = "CLEAN_AND_SYNCHRONIZE"
+    type           = "MANUALLY"
+  }
+  reference_field_type = "BOTH"
+  run_immediately      = true
+  scheduler = {
+    begin_date = formatdate("YYYY-MM-DD", timestamp())
+    type       = "MANUALLY"
+  }
+  scheduler_priority = "NORMAL"
+  view               = null
+}
+
+
